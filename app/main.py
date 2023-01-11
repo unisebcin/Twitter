@@ -1,4 +1,4 @@
-from utils import *
+from utils import get_user_info, get_user_tweets, save_to_file, get_likers_retweeters, Settings
 from http import HTTPStatus
 import logging.config
 
@@ -46,7 +46,8 @@ if __name__ == '__main__':
 
     likers_count = save_to_file(data_type='likers', data=likers, api=api)
     retweeters_count = save_to_file(data_type='retweeters', data=retweeters, api=api)
-    logger.info(f'User likers and retweeters taken: tweets : {tweet_count} / Likers : {likers_count} / Retweeters : {retweeters_count}')
+    logger.info(f'User likers and retweeters taken: tweets : {tweet_count} / Likers : {likers_count} '
+                f'/ Retweeters : {retweeters_count}')
 
     print(f"""\n ========== SUMMARY =============
     # of tweets retrieved from {api.username} : {tweet_count}
