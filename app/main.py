@@ -2,7 +2,7 @@ from utils import get_user_info, get_user_tweets, save_to_file, get_likers_retwe
 from http import HTTPStatus
 import logging.config
 
-logging.config.fileConfig(fname='log.conf', disable_existing_loggers=False)
+logging.config.fileConfig(fname='./app/log.conf', disable_existing_loggers=False)
 
 logger = logging.getLogger('Twitter')
 
