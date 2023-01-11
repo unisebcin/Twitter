@@ -11,6 +11,7 @@ import logging
 
 load_dotenv('.env')
 logger = logging.getLogger('Utils')
+print(openpyxl.NUMPY.denominator)
 
 
 class Settings:

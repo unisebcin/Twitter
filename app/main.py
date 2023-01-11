@@ -27,7 +27,7 @@ if __name__ == '__main__':
     for tweet in user_tweets:
         counter += 1
         # Below lines added iot avoid rate limits and have to be removed before deployment.
-        if counter > 5:
+        if counter > 7:
             break
         print(f'# of tweets processed : {counter}/{tweet_count}')
         if tweet['public_metrics']['like_count']:
