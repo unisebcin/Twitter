@@ -47,7 +47,8 @@ def get_user_info(api: Settings):
 
     url_info = api.url_base + f"users/by/username/{api.username}"
     params = {
-        'user.fields': 'created_at,description,entities,id,location,name,pinned_tweet_id,profile_image_url,protected,public_metrics,url,username,verified,withheld'
+        'user.fields': 'created_at,description,entities,id,location,name,pinned_tweet_id,profile_image_url,protected,'
+                       'public_metrics,url,username,verified,withheld'
     }
     resp = requests.get(url_info, headers=api.auth, params=params)
     if resp and 'data' in resp.json():
@@ -67,7 +68,8 @@ def get_user_tweets(user_info: dict, api: Settings):
     params = {
         'max_results': 100,
         'start_time': start_date.isoformat('T') + 'Z',
-        'tweet.fields': 'author_id,context_annotations,conversation_id,created_at,entities,geo,id,in_reply_to_user_id,lang,public_metrics,referenced_tweets,reply_settings,source,text',
+        'tweet.fields': 'author_id,context_annotations,conversation_id,created_at,entities,geo,id,in_reply_to_user_id,'
+                        'lang,public_metrics,referenced_tweets,reply_settings,source,text',
         'user.fields': 'created_at,description,entities,id,location,name,protected,public_metrics,username'
     }
     resp = requests.get(url_tweets, headers=api.auth, params=params)
