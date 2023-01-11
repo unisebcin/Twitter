@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "twitter"
+version = "0.1.0"
+description = ""
+authors = ["unisebcin <97784790+unisebcin@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+flake8 = "^6.0.0"
+openpyxl = "^3.0.10"
+pandas = "^1.5.2"
+snscrape = "^0.4.3.20220106"
+python-dotenv = "^0.21.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
