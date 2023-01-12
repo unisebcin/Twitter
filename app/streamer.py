@@ -52,11 +52,11 @@ def start_stream():
                     my_json = line.decode('utf8').replace("'", '"')
                     data = json.loads(my_json)
                     logger.info(data)
-                except Exception as e:
+                except Exception:
                     counter += 1
                     if counter == 3:
                         return
-                    logger.exception(' Error : ' + e)
+                    logger.exception('Error : ')
                     logger.warning(line)
 
 
