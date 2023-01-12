@@ -56,7 +56,7 @@ def start_stream():
                     counter += 1
                     if counter == 3:
                         return
-                    logger.exception(' Error : ' + e)
+                    logger.exception('Error : ')
                     logger.warning(line)
 
 
