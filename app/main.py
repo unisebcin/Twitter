@@ -65,4 +65,4 @@ def main(option: str):
 
 
 if __name__ == '__main__':
-    main(option='stream')
+    main()

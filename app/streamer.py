@@ -1,5 +1,5 @@
 import requests
-import time
+import time     # noqa: F401
 import json
 import os
 import logging
@@ -7,10 +7,10 @@ from dotenv import load_dotenv
 
 load_dotenv('.env')
 
-headers = {"Authorization": "Bearer " + os.environ.get('bearer')}
+
 stream_rules_url = 'https://api.twitter.com/2/tweets/search/stream/rules'
 stream_url = 'https://api.twitter.com/2/tweets/search/stream'
-
+headers = {"Authorization": "Bearer " + os.environ.get('bearer')}
 logger = logging.getLogger('Stream')
 
 
@@ -44,6 +44,7 @@ def delete_rules(ids: list):
 def start_stream():
     logger.info('Streaming...')
     s = requests.Session()
+    counter = 0
     with s.get(stream_url, headers=headers, stream=True) as resp:
         for line in resp.iter_lines():
             if line:
@@ -52,6 +53,9 @@ def start_stream():
                     data = json.loads(my_json)
                     logger.info(data)
                 except Exception as e:
+                    counter += 1
+                    if counter == 3:
+                        return
                     logger.exception(' Error : ' + e)
                     logger.warning(line)
 
@@ -61,4 +65,5 @@ if __name__ == '__main__':
         logger.info('Infinite loop is about to start...')
         start_stream()
         logger.warning('Connection Lost: Sleeping for 2 min...')
-        time.sleep(120)
+        break
+        # time.sleep(120)
