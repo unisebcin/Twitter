@@ -3,15 +3,15 @@ from datetime import datetime
 from dateutil.relativedelta import relativedelta
 import time
 import pandas as pd
-import openpyxl
+import openpyxl     # noqa: F401
 from http import HTTPStatus
 import os
-from dotenv import load_dotenv
 import logging
-
+from dotenv import load_dotenv
 load_dotenv('.env')
+
 logger = logging.getLogger('Utils')
-print(openpyxl.NUMPY.denominator)
+# print(openpyxl.NUMPY.denominator)
 
 
 class Settings:
@@ -27,7 +27,7 @@ class Settings:
         self.auth = {"Authorization": "Bearer " + self.bearer}
         self.start_date = (datetime.utcnow() - relativedelta(days=10)).isoformat().split('T')[0]
         self.today = datetime.utcnow().isoformat().split('T')[0]
-        self.username = 'businessline'
+        self.username = 'CryptoDogu' #./app/
         self.save_path_tweets = self.username + '_tweets_' + self.today + '.xlsx'
         self.save_path_likers = self.username + '_likers_' + self.today + '.xlsx'
         self.save_path_retweeters = self.username + '_retweeters_' + self.today + '.xlsx'
