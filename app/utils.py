@@ -27,7 +27,7 @@ class Settings:
         self.auth = {"Authorization": "Bearer " + self.bearer}
         self.start_date = (datetime.utcnow() - relativedelta(days=10)).isoformat().split('T')[0]
         self.today = datetime.utcnow().isoformat().split('T')[0]
-        self.username = 'CryptoDogu' #./app/
+        self.username = 'CryptoDogu'
         self.save_path_tweets = self.username + '_tweets_' + self.today + '.xlsx'
         self.save_path_likers = self.username + '_likers_' + self.today + '.xlsx'
         self.save_path_retweeters = self.username + '_retweeters_' + self.today + '.xlsx'

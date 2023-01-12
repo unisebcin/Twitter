@@ -4,6 +4,7 @@ import json
 import os
 import logging
 from dotenv import load_dotenv
+
 load_dotenv('.env')
 
 headers = {"Authorization": "Bearer " + os.environ.get('bearer')}
@@ -21,14 +22,7 @@ def add_rule(value: str, tag: str):
     :param tag: any name to be given for rule added.
     :return: response of twitter add rule end point
     """
-    rule_json = {"add":
-        [
-            {
-                "value": value,
-                "tag": tag
-            }
-        ]
-    }
+    rule_json = {"add": [{"value": value, "tag": tag}]}
     return requests.post(stream_rules_url, headers=headers, json=rule_json).json()
 
 

@@ -4,7 +4,7 @@ import logging.config
 import click
 import streamer
 
-logging.config.fileConfig(fname='log.conf', disable_existing_loggers=False)
+logging.config.fileConfig(fname='./app/log.conf', disable_existing_loggers=False)
 
 logger = logging.getLogger('Twitter')
 
